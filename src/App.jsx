@@ -2,7 +2,12 @@ import React from "react";
 import Camera from "./Camera";
 
 const App = () => {
-  return <Camera />;
+  return (
+    <>
+      <input type="file" accept="image/*;capture=camera" />
+      <Camera />
+    </>
+  );
 };
 
 export default App;
