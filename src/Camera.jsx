@@ -4,14 +4,13 @@ const Camera = () => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const [photos, setPhotos] = useState(null);
-  const [hasPermission, setHasPermission] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const requestCameraAccess = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
-          facingMode: "user", // Use 'environment' for the back camera
+          facingMode: "environment", // Use 'environment' for the back camera
           width: { ideal: 1280 },
           height: { ideal: 720 },
         },
@@ -19,7 +18,6 @@ const Camera = () => {
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         videoRef.current.play();
-        setHasPermission(true);
       } else {
         throw new Error("Video tag reference not found");
       }
