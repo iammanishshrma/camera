@@ -4,7 +4,7 @@ import Camera from "./Camera";
 const App = () => {
   return (
     <>
-      <input type="file" accept="image/*;capture=camera" />
+      <input type="file" accept="image/*;capture=camera" multiple />
       <Camera />
     </>
   );
